@@ -29,6 +29,7 @@ name_fix <- function(row, strainlist){
   
   # Replace forbidden characters with underscores.
   # Remove parentheses.
+  # Remove "str".
   name <- gsub(" ", "_", name)
   name <- gsub(":", "_", name)
   name <- gsub("/", "_", name)
@@ -37,6 +38,7 @@ name_fix <- function(row, strainlist){
   name <- gsub("__", "_", name)
   name <- gsub("\\)", "", name)
   name <- gsub("\\(", "", name)
+  name <- gsub("str_", "", name)
   
   return(name)
 }
