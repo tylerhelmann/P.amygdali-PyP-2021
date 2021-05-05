@@ -136,8 +136,8 @@ echo "Pseudomonas_syringae_DC3000" >> genomedb/strainlist.txt
 echo "Pseudomonas_savastanoi_1448A" >> genomedb/strainlist.txt
 ~~~
 
-- [strainlist.txt](genomedb/strainlist.txt)
-- [prop_strainlist.txt](genomedb/prop_strainlist.txt)
+- [strainlist.txt](amygdali_db/strainlist.txt)
+- [prop_strainlist.txt](amygdali_db/prop_strainlist.txt)
 
 Copy all [NCBI downloaded] peptide sequences.
 
