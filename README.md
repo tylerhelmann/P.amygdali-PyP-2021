@@ -3,7 +3,7 @@ PyParanoid summary of Pseudomonas amygdali
 
 #### Creation of a gene homology database of *Pseudomonas amygdali* strains. 
 
-Focus: novel isolate = XXX.   
+Focus: novel isolate = putative *Pseudomonas amygdali*.   
 Skip to [results](P_amygdali_db/)
 
 PyParanoid citation: 
@@ -34,6 +34,13 @@ Versions used here:
 
 ### Database setup.
 
+#### Copy proteome of interest into genomedb/pep.
+
+~~~ bash
+mv genomedb/pep/Hibiscus_isolate_annotated.faa \
+genomedb/pep/Pseudomonas_amygdali_Hibiscus.pep.fa
+~~~
+
 #### Download NCBI RefSeq genome metadata.
 
 ~~~ bash
@@ -63,6 +70,23 @@ Assemblies downloaded 5/4/2021, using NCBI "datasets" tool.
 ~~~
 ~~~
 Downloading: P_amygdali.zip    521MB done
+~~~
+
+Few complete genomes available within this species:  
+- Complete Genome (4)  
+- Scaffold (51)          
+- Contig (27)        
+
+#### Download additional strains for outgroups.
+
+- *P. syringae* pv. *tomato* DC3000 (GCF_000007805.1)
+- *P. syringae* pv. *syringae* B728a (GCF_000012245.1)
+
+~~~ bash
+mv genomedb/pep/GCF_000007805.1_ASM780v1_protein.faa \
+genomedb/pep/Pseudomonas_syringae_DC3000.pep.fa
+mv genomedb/pep/GCF_000012245.1_ASM1224v1_protein.faa \
+genomedb/pep/Pseudomonas_syringae_B728a.pep.fa
 ~~~
 
 #### Set up PyParanoid directory within working directory
@@ -100,10 +124,18 @@ R
 > q()
 ~~~
 
+Add *P. syringae* controls and strain of interest to core strainlist.
+
+~~~ bash
+echo "Pseudomonas_amygdali_Hibiscus.pep.fa" >> genomedb/strainlist.txt
+echo "Pseudomonas_syringae_B728a.pep.fa" >> genomedb/strainlist.txt
+echo "Pseudomonas_syringae_DC3000.pep.fa" >> genomedb/strainlist.txt
+~~~
+
 - [strainlist.txt](genomedb/strainlist.txt)
 - [prop_strainlist.txt](genomedb/prop_strainlist.txt)
 
-Copy all peptide sequences.
+Copy all [NCBI downloaded] peptide sequences.
 
 ~~~ bash
 chmod +x src/cp_faa.sh
