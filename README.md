@@ -4,7 +4,7 @@ PyParanoid summary of Pseudomonas amygdali
 #### Creation of a gene homology database of *Pseudomonas amygdali* strains. 
 
 Focus: novel isolate = putative *Pseudomonas amygdali*.   
-Skip to [results](P_amygdali_db/)
+Skip to [results](amygdali_db/)
 
 PyParanoid citation: 
 
