@@ -75,7 +75,7 @@ Downloading: P_amygdali.zip    521MB done
 Few complete genomes available within this species:  
 - Complete Genome (4)  
 - Scaffold (51)          
-- Contig (27)        
+- Contig (27)    
 
 #### Download additional strains for outgroups.
 
@@ -136,6 +136,11 @@ echo "Pseudomonas_syringae_DC3000" >> genomedb/strainlist.txt
 echo "Pseudomonas_savastanoi_1448A" >> genomedb/strainlist.txt
 ~~~
 
+#### Troubleshooting edit.
+
+Removed *P. amygdali* pv. *dendropanacis* CFBP 3226 from prop\_strainlist.txt because appears to be duplicated.  
+(NCBI: GCF\_000935735.1 and GCF\_001538145.1)
+
 - [strainlist.txt](amygdali_db/strainlist.txt)
 - [prop_strainlist.txt](amygdali_db/prop_strainlist.txt)
 
@@ -162,7 +167,7 @@ Parsing diamond results for 8 strains...
 	Done!
 Running InParanoid on 28 pairs of strains...
 Sequential mode...
-	0 remaining...
+        0 remaining...
 Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/out
 Parsing 28 output files.
 	Done!
@@ -174,26 +179,26 @@ Parsing 28 output files.
 [mclIO] reading </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/data.mci>
 .......................................
 [mclIO] read native interchange 39388x39388 matrix with 250222 entries
-[mcl] pid 18904
+[mcl] pid 57759
  ite   chaos  time hom(avg,lo,hi) m-ie m-ex i-ex fmv
-  1     1.98  0.11 1.00/0.41/2.32 1.02 1.02 1.02   0
-  2     2.76  0.10 0.99/0.54/1.37 1.01 1.01 1.03   0
-  3     4.16  0.10 0.99/0.30/1.93 1.00 1.00 1.02   0
-  4     5.43  0.11 0.99/0.29/3.43 1.00 0.99 1.02   0
-  5     2.50  0.12 0.99/0.32/3.47 1.00 0.99 1.01   0
-  6     3.54  0.13 0.99/0.19/2.58 1.00 0.99 1.00   0
-  7     7.19  0.13 0.99/0.28/1.04 1.00 0.99 0.98   0
-  8     1.45  0.11 1.00/0.36/1.03 1.00 0.99 0.98   0
-  9     0.74  0.13 1.00/0.57/1.01 1.00 0.99 0.97   0
- 10     0.74  0.12 1.00/0.63/1.00 1.00 1.00 0.97   0
- 11     1.27  0.13 1.00/0.48/1.00 1.00 1.00 0.96   0
- 12     1.47  0.12 1.00/0.57/1.00 1.00 1.00 0.96   0
- 13     0.81  0.14 1.00/0.55/1.00 1.00 1.00 0.96   0
- 14     1.46  0.13 1.00/0.42/1.00 1.00 1.00 0.96   0
- 15     1.37  0.12 1.00/0.61/1.00 1.00 1.00 0.96   0
- 16     0.27  0.13 1.00/0.82/1.00 1.00 1.00 0.96   0
- 17     0.03  0.18 1.00/0.98/1.00 1.00 1.00 0.96   0
- 18     0.00  0.11 1.00/1.00/1.00 1.00 1.00 0.96   0
+  1     1.98  0.13 1.00/0.41/2.32 1.02 1.02 1.02   0
+  2     2.76  0.14 0.99/0.54/1.37 1.01 1.01 1.03   0
+  3     4.16  0.14 0.99/0.30/1.93 1.00 1.00 1.02   0
+  4     5.43 18446744073709.64 0.99/0.29/3.43 1.00 0.99 1.02   0
+  5     2.50  0.15 0.99/0.32/3.47 1.00 0.99 1.01   0
+  6     3.54  0.14 0.99/0.19/2.58 1.00 0.99 1.00   0
+  7     7.19  0.15 0.99/0.28/1.04 1.00 0.99 0.98   0
+  8     1.45  0.14 1.00/0.36/1.03 1.00 0.99 0.98   0
+  9     0.74  0.19 1.00/0.57/1.01 1.00 0.99 0.97   0
+ 10     0.74  0.13 1.00/0.63/1.00 1.00 1.00 0.97   0
+ 11     1.27  0.14 1.00/0.48/1.00 1.00 1.00 0.96   0
+ 12     1.47 18446744073709.64 1.00/0.57/1.00 1.00 1.00 0.96   0
+ 13     0.81  0.15 1.00/0.55/1.00 1.00 1.00 0.96   0
+ 14     1.46  0.15 1.00/0.42/1.00 1.00 1.00 0.96   0
+ 15     1.37  0.14 1.00/0.61/1.00 1.00 1.00 0.96   0
+ 16     0.27  0.15 1.00/0.82/1.00 1.00 1.00 0.96   0
+ 17     0.03  0.14 1.00/0.98/1.00 1.00 1.00 0.96   0
+ 18     0.00  0.14 1.00/1.00/1.00 1.00 1.00 0.96   0
 [mcl] cut <4> instances of overlap
 [mcl] jury pruning marks: <100,99,99>, out of 100
 [mcl] jury pruning synopsis: <99.6 or perfect> (cf -scheme, -do log)
@@ -273,7 +278,7 @@ PropagateGroups.py --cpus 4 genomedb/ \
 genomedb/prop_strainlist.txt amygdali_db
 ~~~
 ~~~
-Making diamond databases for 74 strains...
+Making diamond databases for 72 strains...
 	70 remaining...
 	60 remaining...
 	50 remaining...
@@ -282,7 +287,7 @@ Making diamond databases for 74 strains...
 	20 remaining...
 	10 remaining...
 	Done!
-Running diamond on all 74 strains...
+Running diamond on all 72 strains...
 	70 remaining...
 	60 remaining...
 	50 remaining...
@@ -315,7 +320,7 @@ Parsing diamond results...
 	20 remaining...
 	10 remaining...
 	Done!
-Running inparanoid on 74 strains...
+Running inparanoid on 72 strains...
 Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/prop_m8
 Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/prop_out
 Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/prop_dmnd
