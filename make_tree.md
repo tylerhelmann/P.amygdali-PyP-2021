@@ -16,6 +16,7 @@ write(homolog_matrix[which(single_copy_rows), "X"],
 q()
 ~~~
 
+[single\_copy\_groups.txt](amygdali_db/single_copy_groups.txt)  
 2131 single-copy groups in all strains. 
 
 #### Construct an alignment for each ortholog.
