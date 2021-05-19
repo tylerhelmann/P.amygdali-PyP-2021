@@ -434,7 +434,7 @@ Create tree using FastTree2.
 
 ~~~ bash
 ../../Scripts/FastTree \
-< amygdali_ortho/master_alignment.faa \
+< amygdali_ortho/master_alignment.faa-gb \
 > amygdali_ortho/amygdali.tree
 ~~~
 
@@ -446,9 +446,9 @@ Search: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1
 TopHits: 1.00*sqrtN close=default refresh=0.80
 ML Model: Jones-Taylor-Thorton, CAT approximation with 20 rate categories
 Ignored unknown character X (seen 22 times)
-Initial topology in 38.44 secondshits for      1 of     74 seqs   
+Initial topology in 34.63 secondshits for      1 of     74 seqs   
 Refining topology: 25 rounds ME-NNIs, 2 rounds ME-SPRs, 12 rounds ML-NNIs
-Total branch-length 0.120 after 198.02 sec 1 of 72 splits    
+Total branch-length 0.120 after 181.21 sec 1 of 72 splits    
 
 WARNING! This alignment consists of closely-related and very-long sequences.
 This version of FastTree may not report reasonable branch lengths!
@@ -460,16 +460,16 @@ WARNING! FastTree (or other standard maximum-likelihood tools)
 may not be appropriate for aligments of very closely-related sequences
 like this one, as FastTree does not account for recombination or gene conversion
 
-ML-NNI round 1: LogLk = -2336646.793 NNIs 7 max delta 185.89 Time 1155.42
+ML-NNI round 1: LogLk = -2336646.793 NNIs 7 max delta 185.89 Time 1133.83
 Switched to using 20 rate categories (CAT approximation)20 of 20   
 Rate categories were divided by 0.658 so that average rate = 1.0
 CAT-based log-likelihoods may not be comparable across runs
 Use -gamma for approximate but comparable Gamma(20) log-likelihoods
-ML-NNI round 2: LogLk = -2294982.216 NNIs 4 max delta 0.09 Time 2226.57
+ML-NNI round 2: LogLk = -2294982.216 NNIs 4 max delta 0.09 Time 2247.69
 Turning off heuristics for final round of ML NNIs (converged)
-ML-NNI round 3: LogLk = -2294982.041 NNIs 1 max delta 0.00 Time 2905.11 (final)
-Optimize all lengths: LogLk = -2294982.056 Time 3133.77
-Total time: 4171.77 seconds Unique: 74/80 Bad splits: 0/71
+ML-NNI round 3: LogLk = -2294982.041 NNIs 1 max delta 0.00 Time 2930.86 (final)
+Optimize all lengths: LogLk = -2294982.056 Time 3166.96
+Total time: 4223.11 seconds Unique: 74/80 Bad splits: 0/71
 ~~~
 
 Set *P. syringae* B728a as root for [tree](amygdali_ortho/amygdali.tree).
