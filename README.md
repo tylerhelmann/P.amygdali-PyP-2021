@@ -4,8 +4,8 @@ PyParanoid summary of *Pseudomonas amygdali*.
 #### Creation of a gene homology database of *Pseudomonas amygdali* strains. 
 
 Focus: novel isolate = putative *Pseudomonas amygdali "Hibiscus"*.   
-Skip to [results](amygdali_db/)
-3
+Skip to [results](amygdali_db/).  
+
 PyParanoid citation: 
 
 Melnyk, R.A., Hossain, S.S. & Haney, C.H. Convergent gain and loss of genomic islands drive lifestyle changes in plant-associated Pseudomonas. ISME J 13, 1575–1588 (2019). DOI: [10.1038/s41396-019-0372-5](https://doi.org/10.1038/s41396-019-0372-5)
