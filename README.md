@@ -421,7 +421,7 @@ Original alignment: 702620 positions
 Gblocks alignment:  669687 positions (95 %) in 1097 selected block(s)
 ~~~
 
-Create tree using FastTree2.
+#### Create tree using FastTree2.
 
 ~~~ bash
 ../../Scripts/FastTree \
@@ -455,3 +455,19 @@ Total time: 6155.72 seconds Unique: 56/58 Bad splits: 0/53
 
 Set *P. syringae* B728a as root for [tree](amygdali_ortho/amygdali.tree).
 
+#### Create tree using RAxML.
+
+Use same input as FastTree: amygdali\_ortho/master\_alignment.faa-gb
+
+System: Linux (CentOS 7.6) 64-core 512 GB.
+
+~~~
+export PATH=/programs/RAxML-8.2.12:$PATH
+
+raxmlHPC-PTHREADS -T 64 -f a -m PROTGAMMAAUTO \
+-p 12345 -x 12345 -# 100 -s master_alignment.faa-gb \
+-n T1 -o Pseudomonas_syringae_B728a
+~~~
+
+Results: [RAxML/](RAxML/)  
+[log](RAxML/RAxML_info.T1)
