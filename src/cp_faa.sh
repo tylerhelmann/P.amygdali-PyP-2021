@@ -1,6 +1,9 @@
 #! bash 
 
+cp ncbi_dataset/data/GCF_018324325.1/*protein.faa genomedb/pep/Pseudomonas_amygdali_pv_tabaci_6605.pep.fa
+cp ncbi_dataset/data/GCF_019334485.1/*protein.faa genomedb/pep/Pseudomonas_amygdali_HS1.pep.fa
 cp ncbi_dataset/data/GCF_002068135.1/*protein.faa genomedb/pep/Pseudomonas_amygdali_pv_lachrymans_NM002.pep.fa
+cp ncbi_dataset/data/GCF_018603495.1/*protein.faa genomedb/pep/Pseudomonas_amygdali_pv_lachrymans_8.pep.fa
 cp ncbi_dataset/data/GCF_002905685.2/*protein.faa genomedb/pep/Pseudomonas_amygdali_pv_morsprunorum_R15244.pep.fa
 cp ncbi_dataset/data/GCF_000145945.2/*protein.faa genomedb/pep/Pseudomonas_amygdali_pv_tabaci_ATCC_11528.pep.fa
 cp ncbi_dataset/data/GCF_000146005.2/*protein.faa genomedb/pep/Pseudomonas_amygdali_pv_lachrymans_M301315.pep.fa

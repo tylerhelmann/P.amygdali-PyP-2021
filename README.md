@@ -3,7 +3,7 @@ PyParanoid summary of *Pseudomonas amygdali*.
 
 #### Creation of a gene homology database of *Pseudomonas amygdali* strains. 
 
-Focus: novel isolate = putative *Pseudomonas amygdali "Hibiscus"*.   
+Novel isolate = putative *Pseudomonas amygdali* pv. *hibisci* strain 35-1.   
 Skip to [results](amygdali_db/).  
 
 PyParanoid citation: 
@@ -54,7 +54,7 @@ rm ncbi_metadata.txt ncbi_header.txt ncbi_amygdali_temp.txt
 
 #### Download NCBI assemblies for these strains. 
 
-Assemblies downloaded 5/4/2021, using NCBI "datasets" tool.  
+Assemblies downloaded 9/12/2021, using NCBI "datasets" tool.  
 (+ Unzip.)
 
 ~~~ bash
@@ -62,11 +62,11 @@ Assemblies downloaded 5/4/2021, using NCBI "datasets" tool.
 --filename P_amygdali.zip
 ~~~
 ~~~
-Downloading: P_amygdali.zip    521MB done
+Downloading: P_amygdali.zip    553MB done
 ~~~
 
 Few complete genomes available within this species:  
-- Complete Genome (4)  
+- Complete Genome (7)  
 - Scaffold (51)          
 - Contig (27)    
 
@@ -96,8 +96,8 @@ ls ncbi_dataset/data/ > ncbi_dataset/available_assemblies.txt
 ~~~
 
 Create strainlists, and copy all pep.fa files into genomedb/pep.  
-**Training dataset is all genomes where assembly_level = "Complete Genome".**  
-**Propagation dataset is all genomes where assembly_level = "Scaffold".**  
+strainlist.txt is all genomes where assembly_level = "Complete Genome".* 
+prop_strainlist.txt is all genomes where assembly_level = "Scaffold".
 
 ~~~ r
 R
@@ -108,7 +108,7 @@ R
 Add *P. syringae* controls and strain of interest to core strainlist.
 
 ~~~ bash
-echo "Pseudomonas_amygdali_Hibiscus" >> genomedb/strainlist.txt
+echo "Pseudomonas_amygdali_35-1" >> genomedb/strainlist.txt
 echo "Pseudomonas_syringae_B728a" >> genomedb/strainlist.txt
 echo "Pseudomonas_syringae_DC3000" >> genomedb/strainlist.txt
 echo "Pseudomonas_savastanoi_1448A" >> genomedb/strainlist.txt
@@ -117,6 +117,12 @@ echo "Pseudomonas_savastanoi_1448A" >> genomedb/strainlist.txt
 - [strainlist.txt](genomedb/strainlist.txt)
 - [prop_strainlist.txt](genomedb/prop_strainlist.txt)
 
+**Edit**: Add prop_strainlist.txt genomes to strainlist.txt and run all-vs-all comparison instead of sequential.
+
+~~~ bash
+cat genomedb/prop_strainlist.txt >> genomedb/strainlist.txt
+~~~
+
 Copy all relevant [NCBI downloaded] peptide sequences.
 
 ~~~ bash
@@ -124,7 +130,7 @@ chmod +x src/cp_faa.sh
 ./src/cp_faa.sh
 ~~~
 
-#### Download additional strains for outgroups.
+#### Download additional reference strains.
 
 - *P. syringae* pv. *tomato* DC3000 (GCF_000007805.1)
 - *P. syringae* pv. *syringae* B728a (GCF_000012245.1)
@@ -144,66 +150,104 @@ gunzip genomedb/pep/*pep.fa.gz
 #### Copy proteome of interest into genomedb/pep.
 
 ~~~ bash
-cp Pseudomonas_amygdali_Hibiscus.pep.fa \
-genomedb/pep/Pseudomonas_amygdali_Hibiscus.pep.fa
+cp Pseudomonas_amygdali_35-1.pep.fa \
+genomedb/pep/Pseudomonas_amygdali_35-1.pep.fa
 ~~~
 
-#### Build genome database from training dataset.
+#### Build genome database.
 
 ~~~ bash
-BuildGroups.py --clean --verbose  --cpus 4 genomedb/ \
+BuildGroups.py --clean --verbose  --cpus 8 genomedb/ \
 genomedb/strainlist.txt amygdali_db
 ~~~
 
 ~~~
-Formatting 8 fasta files...
-Making diamond databases for 8 strains...
-Running DIAMOND on all 8 strains...
+Formatting 61 fasta files...
+Making diamond databases for 61 strains...
+Running DIAMOND on all 61 strains...
 	Done!
 Getting gene lengths...
-Parsing diamond results for 8 strains...
+Parsing diamond results for 61 strains...
 	Done!
-Running InParanoid on 28 pairs of strains...
+Running InParanoid on 1830 pairs of strains...
 Sequential mode...
+	1800 remaining...
+	1700 remaining...
+	1600 remaining...
+	1500 remaining...
+	1400 remaining...
+	1300 remaining...
+	1200 remaining...
+	1100 remaining...
+	1000 remaining...
+	900 remaining...
+	800 remaining...
+	700 remaining...
+	600 remaining...
+	500 remaining...
+	400 remaining...
+	300 remaining...
+	200 remaining...
+	100 remaining...
 	0 remaining...
 Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/out
-Parsing 28 output files.
+Parsing 1830 output files.
+	1000 remaining...
 	Done!
-......[mclIO] writing </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/data.mci>
+.................................................. 1M
+.................................................. 2M
+.................................................. 3M
+.................................................. 4M
+.................................................. 5M
+.................................................. 6M
+.................................................. 7M
+.................................................. 8M
+.........
+[mclIO] writing </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/data.mci>
 .......................................
-[mclIO] wrote native interchange 39392x39392 matrix with 250490 entries to stream </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/data.mci>
-[mclIO] wrote 39392 tab entries to stream </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/data.tab>
-[mcxload] tab has 39392 entries
+[mclIO] wrote native interchange 317193x317193 matrix with 16296344 entries to stream </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/data.mci>
+[mclIO] wrote 317193 tab entries to stream </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/data.tab>
+[mcxload] tab has 317193 entries
 [mclIO] reading </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/data.mci>
 .......................................
-[mclIO] read native interchange 39392x39392 matrix with 250490 entries
-[mcl] pid 92700
+[mclIO] read native interchange 317193x317193 matrix with 16296344 entries
+[mcl] pid 86781
  ite   chaos  time hom(avg,lo,hi) m-ie m-ex i-ex fmv
-  1     2.21  0.10 1.00/0.41/2.32 1.02 1.02 1.02   0
-  2     3.34  0.11 0.99/0.53/1.37 1.01 1.01 1.03   0
-  3     4.32 18446744073709.62 0.99/0.32/1.93 1.00 1.00 1.02   0
-  4     4.88  0.11 0.99/0.38/3.43 1.00 0.99 1.02   0
-  5     2.54  0.11 0.99/0.36/3.47 1.00 0.99 1.01   0
-  6     3.54 18446744073709.62 0.99/0.19/2.58 1.00 0.99 0.99   0
-  7     7.19  0.12 0.99/0.28/1.00 1.00 0.99 0.98   0
-  8     1.45  0.11 1.00/0.36/1.00 1.00 0.99 0.97   0
-  9     0.67  0.11 1.00/0.57/1.00 1.00 0.99 0.97   0
- 10     0.73  0.11 1.00/0.64/1.00 1.00 1.00 0.96   0
- 11     1.27  0.13 1.00/0.48/1.00 1.00 1.00 0.96   0
- 12     1.47  0.12 1.00/0.57/1.00 1.00 1.00 0.96   0
- 13     0.81  0.12 1.00/0.55/1.00 1.00 1.00 0.96   0
- 14     1.46  0.13 1.00/0.42/1.00 1.00 1.00 0.96   0
- 15     1.37  0.17 1.00/0.61/1.00 1.00 1.00 0.96   0
- 16     0.27  0.17 1.00/0.82/1.00 1.00 1.00 0.96   0
- 17     0.03  0.12 1.00/0.98/1.00 1.00 1.00 0.96   0
- 18     0.00  0.12 1.00/1.00/1.00 1.00 1.00 0.96   0
-[mcl] cut <4> instances of overlap
-[mcl] jury pruning marks: <100,99,99>, out of 100
-[mcl] jury pruning synopsis: <99.6 or perfect> (cf -scheme, -do log)
+  1    22.11 13.21 1.01/0.16/5.29 1.05 1.05 1.05   0
+  2    33.02 18446744073721.51 0.99/0.30/3.95 1.11 1.00 1.05   0
+  3    42.63 18446744073721.23 0.99/0.17/3.90 1.06 0.98 1.03   0
+  4    22.37 14.73 0.98/0.11/7.12 1.03 0.99 1.02   0
+  5    22.08 12.70 0.98/0.11/11.35 1.01 0.99 1.01   0
+  6    14.22 18446744073720.46 0.97/0.12/13.60 1.01 0.99 0.99   0
+  7    12.58 18446744073720.14 0.97/0.08/21.04 1.00 0.99 0.99   0
+  8    13.72 12.75 0.98/0.08/37.07 1.00 0.99 0.98   0
+  9    13.45 18446744073721.81 0.97/0.08/3.43 1.00 0.99 0.97   0
+ 10    14.07 14.05 0.98/0.09/1.00 1.00 0.99 0.95   0
+ 11    13.54 13.81 0.98/0.08/1.00 1.00 0.99 0.94   0
+ 12    13.44 18446744073720.19 0.98/0.08/1.00 1.00 0.99 0.93   0
+ 13    13.97 18446744073719.98 0.98/0.08/1.00 1.00 0.99 0.92   0
+ 14    14.74 13.81 0.99/0.08/1.00 1.00 0.98 0.90   0
+ 15    14.16 13.46 0.99/0.11/1.00 1.00 0.99 0.89   0
+ 16     5.90 18446744073719.84 1.00/0.37/1.00 1.00 1.00 0.89   0
+ 17     3.64 11.59 1.00/0.28/1.00 1.00 0.99 0.88   0
+ 18     4.39 11.91 1.00/0.16/1.00 1.00 1.00 0.88   0
+ 19     4.82 18446744073719.82 1.00/0.46/1.00 1.00 1.00 0.88   0
+ 20     1.37 11.78 1.00/0.59/1.00 1.00 1.00 0.88   0
+ 21     2.59 18446744073719.72 1.00/0.26/1.00 1.00 1.00 0.88   0
+ 22     6.82 13.47 1.00/0.19/1.00 1.00 1.00 0.88   0
+ 23     2.25 18446744073719.70 1.00/0.63/1.00 1.00 1.00 0.88   0
+ 24     1.05 18446744073719.65 1.00/0.45/1.00 1.00 1.00 0.88   0
+ 25     1.11 11.94 1.00/0.57/1.00 1.00 1.00 0.88   0
+ 26     0.17 18446744073719.78 1.00/0.88/1.00 1.00 1.00 0.88   0
+ 27     0.01 13.33 1.00/0.99/1.00 1.00 1.00 0.88   0
+ 28     0.00 13.56 1.00/1.00/1.00 1.00 1.00 0.88   0
+[mcl] cut <1> instances of overlap
+[mcl] jury pruning marks: <99,99,99>, out of 100
+[mcl] jury pruning synopsis: <99.0 or perfect> (cf -scheme, -do log)
 [mclIO] writing </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/mcl.out>
 .......................................
-[mclIO] wrote native interchange 39392x5858 matrix with 39392 entries to stream </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/mcl.out>
-[mcl] 5858 clusters found
+[mclIO] wrote native interchange 317193x10963 matrix with 317193 entries to stream </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/mcl.out>
+[mcl] 10963 clusters found
 [mcl] output is in /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/mcl.out
 
 Please cite:
@@ -220,11 +264,16 @@ OR
 
 [mclIO] reading </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/mcl.out>
 .......................................
-[mclIO] read native interchange 39392x5858 matrix with 39392 entries
+[mclIO] read native interchange 317193x10963 matrix with 317193 entries
 Writing fasta files and parsing descriptions...
-5859 groups equal to or larger than 2 sequences.
+10964 groups equal to or larger than 2 sequences.
 Clustering sequences...
 Sequential mode...
+	10000 remaining...
+	9000 remaining...
+	8000 remaining...
+	7000 remaining...
+	6000 remaining...
 	5000 remaining...
 	4000 remaining...
 	3000 remaining...
@@ -233,6 +282,11 @@ Sequential mode...
 	0 remaining...
 Aligning groups...
 Sequential mode...
+	10000 remaining...
+	9000 remaining...
+	8000 remaining...
+	7000 remaining...
+	6000 remaining...
 	5000 remaining...
 	4000 remaining...
 	3000 remaining...
@@ -242,6 +296,11 @@ Sequential mode...
 Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/clustered
 Building hmms...
 Sequential mode...
+	10000 remaining...
+	9000 remaining...
+	8000 remaining...
+	7000 remaining...
+	6000 remaining...
 	5000 remaining...
 	4000 remaining...
 	3000 remaining...
@@ -251,6 +310,11 @@ Sequential mode...
 Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/aligned
 Emitting consensus sequences...
 Sequential mode...
+	10000 remaining...
+	9000 remaining...
+	8000 remaining...
+	7000 remaining...
+	6000 remaining...
 	5000 remaining...
 	4000 remaining...
 	3000 remaining...
@@ -267,53 +331,6 @@ Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amyg
 Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/faa
 Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/homolog_faa
 Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl
-~~~
-
-#### Propagate groups to new draft genomes.
-
-~~~ bash
-PropagateGroups.py --cpus 4 genomedb/ \
-genomedb/prop_strainlist.txt amygdali_db
-~~~
-
-~~~
-Making diamond databases for 50 strains...
-	40 remaining...
-	30 remaining...
-	20 remaining...
-	10 remaining...
-	Done!
-Running diamond on all 50 strains...
-	40 remaining...
-	30 remaining...
-	20 remaining...
-	10 remaining...
-	Done!
-Getting gene lengths...
-Parsing diamond results...
-	150 remaining...
-	140 remaining...
-	130 remaining...
-	120 remaining...
-	110 remaining...
-	100 remaining...
-	90 remaining...
-	80 remaining...
-	70 remaining...
-	60 remaining...
-	50 remaining...
-	40 remaining...
-	30 remaining...
-	20 remaining...
-	10 remaining...
-	Done!
-Running inparanoid on 50 strains...
-Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/prop_m8
-Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/prop_out
-Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/prop_dmnd
-Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/prop_paranoid_output
-Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/prop_faa
-Cleaning up /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/prop_homolog_faa
 ~~~
 
 Output:
@@ -337,18 +354,24 @@ Additional output files not uploaded:
 
 Create an alignment of all [single-copy ortholog groups](amygdali_ortho/orthos.txt). 
 
+(Need to create dummy files.)
+
+~~~ bash
+touch amygdali_db/prop_homolog.faa amygdali_db/prop_strainlist.txt
+~~~
+
 ~~~ bash
 IdentifyOrthologs.py amygdali_db amygdali_ortho
 ~~~
 
 ~~~
 Parsing matrix to identify orthologs...
-2383 orthologs found.
+2332 orthologs found.
 Indexing all_groups.hmm...
 Working...    done.
-Indexed 5858 HMMs (5858 names).
+Indexed 10963 HMMs (10963 names).
 SSI index written to file /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/all_groups.hmm.ssi
-Extracting 2383 HMM files...0 already found.
+Extracting 2332 HMM files...0 already found.
 	2300 remaining...
 	2200 remaining...
 	2100 remaining...
@@ -376,8 +399,8 @@ Extracting 2383 HMM files...0 already found.
 	Done!
 Parsing homolog.faa...
 Parsing prop_homolog.faa...
-Aligning 2383 ortholog files...
-Creating master alignment...Parsing 2383 homologs...
+Aligning 2332 ortholog files...
+Creating master alignment...Parsing 2332 homologs...
 	2300 remaining...
 	2200 remaining...
 	2100 remaining...
@@ -413,12 +436,12 @@ Trim alignment using Gblocks.
 ~~~
 
 ~~~
-58 sequences and 702620 positions in the first alignment file:
+61 sequences and 688077 positions in the first alignment file:
 amygdali_ortho/master_alignment.faa
 
 amygdali_ortho/master_alignment.faa
-Original alignment: 702620 positions
-Gblocks alignment:  669687 positions (95 %) in 1097 selected block(s)
+Original alignment: 688077 positions
+Gblocks alignment:  655152 positions (95 %) in 1121 selected block(s)
 ~~~
 
 #### Create tree using FastTree2.
@@ -436,21 +459,21 @@ Amino acid distances: BLOSUM45 Joins: balanced Support: SH-like 1000
 Search: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1
 TopHits: 1.00*sqrtN close=default refresh=0.80
 ML Model: Jones-Taylor-Thorton, CAT approximation with 20 rate categories
-Ignored unknown character X (seen 23 times)
-Initial topology in 55.72 secondshits for      1 of     56 seqs   
-Refining topology: 23 rounds ME-NNIs, 2 rounds ME-SPRs, 12 rounds ML-NNIs
-Total branch-length 0.118 after 299.80 sec 1 of 54 splits    
-ML-NNI round 1: LogLk = -2623075.329 NNIs 5 max delta 223.59 Time 2028.86
+Ignored unknown character X (seen 24 times)
+Initial topology in 26.97 secondshits for      1 of     59 seqs   
+Refining topology: 24 rounds ME-NNIs, 2 rounds ME-SPRs, 12 rounds ML-NNIs
+Total branch-length 0.121 after 141.62 sec 1 of 57 splits    
+ML-NNI round 1: LogLk = -2595733.584 NNIs 6 max delta 106.11 Time 950.68
 Switched to using 20 rate categories (CAT approximation)20 of 20   
-Rate categories were divided by 0.657 so that average rate = 1.0
+Rate categories were divided by 0.659 so that average rate = 1.0
 CAT-based log-likelihoods may not be comparable across runs
 Use -gamma for approximate but comparable Gamma(20) log-likelihoods
-ML-NNI round 2: LogLk = -2576773.562 NNIs 4 max delta 293.63 Time 3861.78
-ML-NNI round 3: LogLk = -2576773.262 NNIs 0 max delta 0.00 Time 4015.62
+ML-NNI round 2: LogLk = -2547064.755 NNIs 4 max delta 274.70 Time 1881.76
+ML-NNI round 3: LogLk = -2547064.595 NNIs 0 max delta 0.00 Time 1988.74
 Turning off heuristics for final round of ML NNIs (converged)
-ML-NNI round 4: LogLk = -2576772.935 NNIs 2 max delta 0.03 Time 4765.40 (final)
-Optimize all lengths: LogLk = -2576772.905 Time 5020.07
-Total time: 6155.72 seconds Unique: 56/58 Bad splits: 0/53
+ML-NNI round 4: LogLk = -2547064.149 NNIs 2 max delta 0.04 Time 2570.28 (final)
+Optimize all lengths: LogLk = -2547064.126 Time 2771.08
+Total time: 3716.74 seconds Unique: 59/61 Bad splits: 0/56
 ~~~
 
 Set *P. syringae* B728a as root for [tree](amygdali_ortho/amygdali.tree).
