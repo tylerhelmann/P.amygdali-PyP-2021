@@ -202,52 +202,52 @@ Parsing 1830 output files.
 .................................................. 6M
 .................................................. 7M
 .................................................. 8M
-.........
+..........
 [mclIO] writing </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/data.mci>
 .......................................
-[mclIO] wrote native interchange 317193x317193 matrix with 16296344 entries to stream </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/data.mci>
-[mclIO] wrote 317193 tab entries to stream </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/data.tab>
-[mcxload] tab has 317193 entries
+[mclIO] wrote native interchange 317376x317376 matrix with 16301066 entries to stream </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/data.mci>
+[mclIO] wrote 317376 tab entries to stream </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/data.tab>
+[mcxload] tab has 317376 entries
 [mclIO] reading </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/data.mci>
 .......................................
-[mclIO] read native interchange 317193x317193 matrix with 16296344 entries
-[mcl] pid 86781
+[mclIO] read native interchange 317376x317376 matrix with 16301066 entries
+[mcl] pid 48695
  ite   chaos  time hom(avg,lo,hi) m-ie m-ex i-ex fmv
-  1    22.11 13.21 1.01/0.16/5.29 1.05 1.05 1.05   0
-  2    33.02 18446744073721.51 0.99/0.30/3.95 1.11 1.00 1.05   0
-  3    42.63 18446744073721.23 0.99/0.17/3.90 1.06 0.98 1.03   0
-  4    22.37 14.73 0.98/0.11/7.12 1.03 0.99 1.02   0
-  5    22.08 12.70 0.98/0.11/11.35 1.01 0.99 1.01   0
-  6    14.22 18446744073720.46 0.97/0.12/13.60 1.01 0.99 0.99   0
-  7    12.58 18446744073720.14 0.97/0.08/21.04 1.00 0.99 0.99   0
-  8    13.72 12.75 0.98/0.08/37.07 1.00 0.99 0.98   0
-  9    13.45 18446744073721.81 0.97/0.08/3.43 1.00 0.99 0.97   0
- 10    14.07 14.05 0.98/0.09/1.00 1.00 0.99 0.95   0
- 11    13.54 13.81 0.98/0.08/1.00 1.00 0.99 0.94   0
- 12    13.44 18446744073720.19 0.98/0.08/1.00 1.00 0.99 0.93   0
- 13    13.97 18446744073719.98 0.98/0.08/1.00 1.00 0.99 0.92   0
- 14    14.74 13.81 0.99/0.08/1.00 1.00 0.98 0.90   0
- 15    14.16 13.46 0.99/0.11/1.00 1.00 0.99 0.89   0
- 16     5.90 18446744073719.84 1.00/0.37/1.00 1.00 1.00 0.89   0
- 17     3.64 11.59 1.00/0.28/1.00 1.00 0.99 0.88   0
- 18     4.39 11.91 1.00/0.16/1.00 1.00 1.00 0.88   0
- 19     4.82 18446744073719.82 1.00/0.46/1.00 1.00 1.00 0.88   0
- 20     1.37 11.78 1.00/0.59/1.00 1.00 1.00 0.88   0
- 21     2.59 18446744073719.72 1.00/0.26/1.00 1.00 1.00 0.88   0
- 22     6.82 13.47 1.00/0.19/1.00 1.00 1.00 0.88   0
- 23     2.25 18446744073719.70 1.00/0.63/1.00 1.00 1.00 0.88   0
- 24     1.05 18446744073719.65 1.00/0.45/1.00 1.00 1.00 0.88   0
- 25     1.11 11.94 1.00/0.57/1.00 1.00 1.00 0.88   0
- 26     0.17 18446744073719.78 1.00/0.88/1.00 1.00 1.00 0.88   0
- 27     0.01 13.33 1.00/0.99/1.00 1.00 1.00 0.88   0
- 28     0.00 13.56 1.00/1.00/1.00 1.00 1.00 0.88   0
+  1    22.11 18446744073719.39 1.01/0.16/5.29 1.05 1.05 1.05   0
+  2    33.02 14.57 0.99/0.30/3.95 1.11 1.00 1.05   0
+  3    42.63 13.15 0.99/0.17/3.90 1.06 0.98 1.03   0
+  4    22.37 12.53 0.98/0.11/7.12 1.03 0.99 1.02   0
+  5    22.08 13.66 0.98/0.11/11.35 1.01 0.99 1.01   0
+  6    14.22 11.99 0.97/0.14/13.60 1.01 0.99 0.99   0
+  7    12.58 12.52 0.97/0.08/21.04 1.00 0.99 0.99   0
+  8    13.72 12.10 0.98/0.08/37.07 1.00 0.99 0.98   0
+  9    13.45 12.00 0.97/0.08/3.43 1.00 0.99 0.97   0
+ 10    14.07 18446744073719.81 0.98/0.09/1.00 1.00 0.99 0.95   0
+ 11    13.54 18446744073719.96 0.98/0.08/1.00 1.00 0.99 0.94   0
+ 12    13.44 13.16 0.98/0.08/1.00 1.00 0.99 0.93   0
+ 13    13.97 13.51 0.98/0.08/1.00 1.00 0.99 0.92   0
+ 14    14.74 11.79 0.99/0.08/1.00 1.00 0.98 0.90   0
+ 15    14.16 18446744073719.55 0.99/0.11/1.00 1.00 0.99 0.89   0
+ 16     5.90 18446744073719.52 1.00/0.37/1.00 1.00 1.00 0.89   0
+ 17     7.10 18446744073719.24 1.00/0.08/1.00 1.00 0.99 0.88   0
+ 18    12.95 18446744073719.32 1.00/0.16/1.00 1.00 1.00 0.88   0
+ 19     4.82 14.22 1.00/0.46/1.00 1.00 1.00 0.88   0
+ 20     1.37 18446744073719.49 1.00/0.59/1.00 1.00 1.00 0.88   0
+ 21     2.59 11.39 1.00/0.26/1.00 1.00 1.00 0.88   0
+ 22     6.82 12.76 1.00/0.19/1.00 1.00 1.00 0.88   0
+ 23     2.25 18446744073719.27 1.00/0.63/1.00 1.00 1.00 0.88   0
+ 24     1.05 18446744073719.41 1.00/0.45/1.00 1.00 1.00 0.88   0
+ 25     1.11 12.73 1.00/0.57/1.00 1.00 1.00 0.88   0
+ 26     0.17 11.48 1.00/0.86/1.00 1.00 1.00 0.88   0
+ 27     0.02 18446744073719.25 1.00/0.98/1.00 1.00 1.00 0.88   0
+ 28     0.00 18446744073719.50 1.00/1.00/1.00 1.00 1.00 0.88   0
 [mcl] cut <1> instances of overlap
 [mcl] jury pruning marks: <99,99,99>, out of 100
 [mcl] jury pruning synopsis: <99.0 or perfect> (cf -scheme, -do log)
 [mclIO] writing </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/mcl.out>
 .......................................
-[mclIO] wrote native interchange 317193x10963 matrix with 317193 entries to stream </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/mcl.out>
-[mcl] 10963 clusters found
+[mclIO] wrote native interchange 317376x10996 matrix with 317376 entries to stream </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/mcl.out>
+[mcl] 10996 clusters found
 [mcl] output is in /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/mcl.out
 
 Please cite:
@@ -264,9 +264,9 @@ OR
 
 [mclIO] reading </Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/mcl/mcl.out>
 .......................................
-[mclIO] read native interchange 317193x10963 matrix with 317193 entries
+[mclIO] read native interchange 317376x10996 matrix with 317376 entries
 Writing fasta files and parsing descriptions...
-10964 groups equal to or larger than 2 sequences.
+10997 groups equal to or larger than 2 sequences.
 Clustering sequences...
 Sequential mode...
 	10000 remaining...
@@ -369,7 +369,7 @@ Parsing matrix to identify orthologs...
 2332 orthologs found.
 Indexing all_groups.hmm...
 Working...    done.
-Indexed 10963 HMMs (10963 names).
+Indexed 10996 HMMs (10996 names).
 SSI index written to file /Users/tylerhelmann/Documents/USDA/Projects/P.amygdali-PyP-2021/amygdali_db/all_groups.hmm.ssi
 Extracting 2332 HMM files...0 already found.
 	2300 remaining...
