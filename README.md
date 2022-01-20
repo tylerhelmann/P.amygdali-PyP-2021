@@ -41,7 +41,7 @@ curl ftp://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/assembly_summary.txt \
 -o ncbi_metadata.txt
 
 # Extract header.
-head -n 2 ncbi_metadata.txt | tail -n 1 | \
+head -n 2 ncbi_metadata.txt | sed 1d | \
 sed 's/# //' > ncbi_header.txt
 # Extract P. amygdali data.
 grep amygdali ncbi_metadata.txt > ncbi_amygdali_temp.txt
@@ -105,7 +105,7 @@ R
 > q()
 ~~~
 
-Add *P. syringae* controls and strain of interest to core strainlist.
+Add strain 35-1 and *P. syringae* controls to strainlist.
 
 ~~~ bash
 echo "Pseudomonas_amygdali_35-1" >> genomedb/strainlist.txt
@@ -115,13 +115,6 @@ echo "Pseudomonas_savastanoi_1448A" >> genomedb/strainlist.txt
 ~~~
 
 - [strainlist.txt](amygdali_db/strainlist.txt)
-- [prop_strainlist.txt](amygdali_db/prop_strainlist.txt)
-
-**Edit**: Add prop_strainlist.txt genomes to strainlist.txt and run all-vs-all comparison instead of sequential.
-
-~~~ bash
-cat genomedb/prop_strainlist.txt >> genomedb/strainlist.txt
-~~~
 
 Copy all relevant [NCBI downloaded] peptide sequences.
 
@@ -354,9 +347,8 @@ Additional output files not uploaded:
 
 Create an alignment of all [single-copy ortholog groups](amygdali_ortho/orthos.txt). 
 
-(Need to create dummy files.)
-
 ~~~ bash
+# Need to create dummy files
 touch amygdali_db/prop_homolog.faa amygdali_db/prop_strainlist.txt
 ~~~
 

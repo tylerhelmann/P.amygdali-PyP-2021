@@ -1,7 +1,4 @@
 
-
-# 5/4/2021.
-
 library(magrittr)
 
 source("src/NCBI_name_fix.R")
@@ -13,28 +10,26 @@ ncbi_amygdali <- read.delim("ncbi_amygdali.txt", header = T)
 available_assemblies <- read.delim("ncbi_dataset/available_assemblies.txt", header = F)
 
 # Remove references to any missing assemblies.
-ncbi_amygdali <- ncbi_amygdali[which(ncbi_amygdali$assembly_accession %in% available_assemblies$V1),]
+ncbi_amygdali <- ncbi_amygdali[which(ncbi_amygdali$assembly_accession %in% available_assemblies$V1), ]
 
 # Sanitize strain names.
 ncbi_amygdali$final_name <- sapply(c(1:nrow(ncbi_amygdali)), 
-                                  name_fix, strainlist= ncbi_amygdali)
+                                   name_fix, strainlist = ncbi_amygdali)
 
-### Write strainlists.
+### Write strainlist.
 
-# Start by constructing genomedb using assemblies with: "Complete Genome".
-strainlist_core <- ncbi_amygdali[which(ncbi_amygdali$assembly_level=="Complete Genome"),]
+# Start with assemblies: "Complete Genome".
+strainlist <- ncbi_amygdali[which(ncbi_amygdali$assembly_level=="Complete Genome"),]
 
-# Save strainlist_core.
-write.table(strainlist_core$final_name, "genomedb/strainlist.txt",
-          row.names = F, col.names = F, quote = F)
+# Create list of remaining genomes, and remove duplicated strains.
+strainlist_add <- ncbi_amygdali[which(ncbi_amygdali$assembly_level=="Scaffold"),]
+strainlist_add <- strainlist_add[-which(strainlist_add$final_name %in% strainlist$final_name),]
 
-# Create strainlist_prop, and remove duplicated strains.
-strainlist_prop <- ncbi_amygdali[which(ncbi_amygdali$assembly_level=="Scaffold"),]
-strainlist_prop <- strainlist_prop[-which(strainlist_prop$final_name %in% strainlist_core$final_name),]
+strainlist <- rbind(strainlist, strainlist_add)
 
-# Save strainlist_prop.
-write.table(strainlist_prop$final_name, "genomedb/prop_strainlist.txt",
-          row.names = F, col.names = F, quote = F)
+# Save strainlist.
+write.table(strainlist$final_name, "genomedb/strainlist.txt",
+            row.names = F, col.names = F, quote = F)
 
 # Write shell script to copy all relevant files into genomedb/pep.
-save_faa_cp_command(rbind(strainlist_core, strainlist_prop), "src/cp_faa.sh")
+save_faa_cp_command(strainlist, "src/cp_faa.sh")
